@@ -25,7 +25,7 @@ namespace BitLiuToolKit
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(str);
             Console.ResetColor();
-            this.LogDebug("Loading Executables...");
+            LogDebug("Loading Executables...");
             ExecutableManager.RegisterExecutable<BitLiuTool>("#BITLIU_TOOL#");
             PortManager.RegisterPort("BitLiuPort", "BitLiu Backdoor", 213);
             return true;

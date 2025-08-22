@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70A5E916-5602-48B5-9C4E-337F91AF8920}</ProjectGuid>
+    <ProjectGuid>{DDE211A2-E9C8-4521-85F6-02DE44709A5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>BitLiuToolKit</RootNamespace>
     <AssemblyName>BitLiuToolKit</AssemblyName>
@@ -83,8 +83,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitLiuToolKit.cs" />
-    <Compile Include="Executable\BitLiuTool.cs" />
+    <Compile Include="Executables\BitLiuTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="libs\.vs\HacknetPathfinder\CopilotIndices\17.14.1091.29919\CodeChunks.db" />
+    <None Include="libs\.vs\HacknetPathfinder\CopilotIndices\17.14.1091.29919\SemanticSymbols.db" />
+    <None Include="libs\.vs\HacknetPathfinder\v17\.suo" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\0Harmony.dll" />
@@ -100,9 +107,6 @@
     <Content Include="libs\MonoMod.Utils.dll" />
     <Content Include="libs\MonoMod.Utils.xml" />
     <Content Include="libs\PathfinderAPI.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
