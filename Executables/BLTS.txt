@@ -1,0 +1,23 @@
+﻿config [TARGET_COMP] [SOURCE_COMP] 0 $#%#$
+disconnect $#%#$
+connect $#%#$
+delay 2.0 $#%#$
+forkbomb $#%#$
+delay 0.1 $#%#$
+hideNetmap $#%#$
+delay 0.1 $#%#$
+hideDisplay $#%#$
+delay 0.1 $#%#$
+hideRam $#%#$
+delay 2.0 $#%#$
+writel 正在破解213端口:BitLiu Backdoor $#%#$
+delay 2.0 $#%#$
+writel 设备面临入侵风险 $#%#$
+delay 0.1 $#%#$
+showNetMap $#%#$
+delay 0.1 $#%#$
+showRam $#%#$
+delay 0.1 $#%#$
+showDisplay $#%#$
+delay 1.5 $#%#$
+forkbomb $#%#$

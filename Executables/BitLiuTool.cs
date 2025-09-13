@@ -11,10 +11,8 @@ using System.Collections.Generic;
 public class BitLiuTool : BaseExecutable
 {
     private bool isComplete = false;
+    private bool actionLoaded = false;
     private int BitLiuPort;
-
-    public static int[] RAMCosts = new int[5]{ 121, 81, 54, 36, 24 };
-    public static float[] RunTimes = new float[5]{ 170.5f, 85f, 42f, 20f, 8f };
     public Color DeepSkyBlue = new Color(0, 191, 255);
 
     private const string WARNING_TEXT = "OPENING BITLIU BACKDOOR...";
@@ -23,6 +21,7 @@ public class BitLiuTool : BaseExecutable
     
     private float warningPulse = 0.0f;
     private float pulseTimer = 0.0f;
+    private float lifetime = 0.0f;
     private Color backgroundColor = Color.Transparent;
     
     private float lineAnimTime1 = -0.9f;
@@ -33,7 +32,6 @@ public class BitLiuTool : BaseExecutable
     private int linesToDraw2 = 0;
     private const float lineInterval2 = 0.3f;
     private int maxLines2 = 29;
-    private float lifetime = 0.0f;
     private float lineAnimTime3 = -10.2f;
     private int linesToDraw3 = 0;
     private const float lineInterval3 = 0.3f;
@@ -282,19 +280,26 @@ public class BitLiuTool : BaseExecutable
         BitLiuPort = c.GetDisplayPortNumberFromCodePort(213);
         bool isPortExisit = PortDetect.IsHasPort(c, BitLiuPort);
 
-        if (Args.Length < 2)
+        if(Args.Length < 2)
         {
-            os.write("No port number Provided");
-            os.write("Execution failed");
+            os.write("无端口号提供");
+            os.write("执行失败");
             needsRemoval = true;
+
             return;
         }
         else if (Int32.Parse(Args[1]) != BitLiuPort || !isPortExisit)
         {
-            os.write("Target Port is Closed");
-            os.write("Execution failed");
+            os.write("目标端口未开放");
+            os.write("执行失败");
             needsRemoval = true;
             return;
+        }
+        if (actionLoaded == false)
+        {
+            Console.WriteLine("Loading BitLiuTool Actions...");
+            RunnableConditionalActions.LoadIntoOS("BLTA.xml", os);
+            actionLoaded = true;
         }
         base.LoadContent();
     }
@@ -360,13 +365,13 @@ public class BitLiuTool : BaseExecutable
         {
             var c = Programs.getComputer(os, targetIP);
             c.openPort(BitLiuPort, os.thisComputer.ip);
-            os.write("BitLiu Backdoor is opened successfully!");
+            os.write("BitLiu Backdoor 端口已成功打开！");
             c.openPort(188, os.thisComputer.ip);
-            os.write("188 port is opened successfully!");
+            os.write("188端口已成功打开！");
             c.openPort(211, os.thisComputer.ip);
-            os.write("211 port is opened successfully!");
-            c.openPort(500, os.thisComputer.ip);
-            os.write("500 port is opened successfully!");
+            os.write("211端口已成功打开！");
+            c.openPort(3659, os.thisComputer.ip);
+            os.write("3659端口已成功打开！");
             isExiting = true;
         }
         base.Update(t);

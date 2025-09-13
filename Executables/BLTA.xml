@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConditionalActions>
+	<Instantly>
+		<LaunchHackScript Filepath="HackerScripts/BLTS.txt" DelayHost="delayNode" Delay="0" SourceComp="delayNode" TargetComp="playerComp" RequireLogsOnSource="false" RequireSourceIntact="false"/>
+	</Instantly>
+</ConditionalActions>
